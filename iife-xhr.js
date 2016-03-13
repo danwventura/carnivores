@@ -3,5 +3,4 @@
 
 
 Predator.loadCarnivores(showCarnivores);
-// Predator.loadCarnivores(showHerbivores);
-// 
+Predator.loadHerbivores(showHerbivores);
