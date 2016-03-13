@@ -1,0 +1,23 @@
+{
+  "carnivores":[
+  {
+    "name": "Megalodon",
+    "genus": "Lamnidae"
+  },
+  {
+    "name": "Great White",
+    "genus": "Lamnidae"
+  },
+  {
+    "name": "Thresher",
+    "family": "Alopiidae"
+  },
+  {
+    "name": "Whale Shark",
+    "family": "Rhincodontidae"
+  }
+
+  ]
+}
+
+
