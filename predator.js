@@ -12,17 +12,22 @@ let Predator = (function () {
 //and execute an anonymous callback
       loader.addEventListener("load", function () {
         // Set the value of the private array
-        carnivores = JSON.parse(this.responseText);
-        console.log("carnivores", carnivores );
+        carnivores = JSON.parse(this.responseText).carnivores;
 
         //List the carnivores in the DOM
         let list = document.getElementById("carnivores-list");
+        let outputString = "";
 
         for (let i = 0; i < carnivores.length; i++) {
-          currentCarnivore = carnivores[i];
+          let currentCarnivore = carnivores[i];
 
           //Build up DOM string
+          outputString +=  `<h1>${currentCarnivore.name}</h1>`;
+          outputString +=  `<h5>${currentCarnivore.family}</h5>`;
+
+
         }
+          list.innerHTML = outputString;
 
         // Invoke the callback function so that the caller knows
         // that the process is complete. Make sure to pass the 
