@@ -2,11 +2,11 @@
   "carnivores":[
   {
     "name": "Megalodon",
-    "genus": "Lamnidae"
+    "family": "Lamnidae"
   },
   {
     "name": "Great White",
-    "genus": "Lamnidae"
+    "family": "Lamnidae"
   },
   {
     "name": "Thresher",
