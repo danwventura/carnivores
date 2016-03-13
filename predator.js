@@ -2,6 +2,7 @@
 
 let Predator = (function () {
   let carnivores = [];
+  let herbivores = [];
 
   return {
     loadCarnivores: function (callbackFunction) {
@@ -19,9 +20,22 @@ let Predator = (function () {
       });
       loader.open("GET","carnivores.json");
       loader.send();
-    }
-  },
+    },
 
+
+  loadHerbivores: function (callbackFunction) {
+    let loader2 = new XMLHttpRequest();
+
+    loader2.addEventListener("load", function (){
+
+      herbivores = JSON.parse(this.responseText).herbivores
+      callbackFunction(herbivores);
+
+    });
+    loader2.open("GET", "herbivores.json");
+    loader2.send();
+  }
+ }
 })();
 
 function showCarnivores (carnivores){
@@ -40,6 +54,22 @@ function showCarnivores (carnivores){
     list.innerHTML = outputString;
   }
 };
+
+function showHerbivores (herbivores){
+ // List the herbivores in the DOM
+  let list2 = document.getElementById("herbivores-list")
+  let outputString2 = "";
+
+  for (let i = 0; i < herbivores.length; i++) {
+   let currentHerbivore = herbivores[i];
+    // Build up the DOM string
+    outputString2 += `<h1>${currentHerbivore.name}</h1>`;
+    outputString2 += `<h5>${currentHerbivore.family}</h5>`;
+
+    list2.innerHTML = outputString2;
+
+  }
+}
 
 
 
