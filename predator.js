@@ -14,26 +14,10 @@ let Predator = (function () {
         // Set the value of the private array
         carnivores = JSON.parse(this.responseText).carnivores;
 
-        //List the carnivores in the DOM
-        let list = document.getElementById("carnivores-list");
-        let outputString = "";
+        listCarnivores(carnivores);
+        gridCarnivores(carnivores);
 
-        for (let i = 0; i < carnivores.length; i++) {
-          let currentCarnivore = carnivores[i];
-
-          //Build up DOM string
-          outputString +=  `<h1>${currentCarnivore.name}</h1>`;
-          outputString +=  `<h5>${currentCarnivore.family}</h5>`;
-
-
-        }
-          list.innerHTML = outputString;
-
-        // Invoke the callback function so that the caller knows
-        // that the process is complete. Make sure to pass the 
-        // carnivore array as an argument.
-        // callback(carnivores);
-
+        // Invoke the callback function so that the caller knows that the process is complete. Make sure to pass the carnivore array as an argument.callback(carnivores);
 
       });
       loader.open("GET","carnivores.json");
@@ -41,5 +25,40 @@ let Predator = (function () {
     }
   }
 })();
+
+function listCarnivores (carnivores){
+
+  //List the carnivores in the DOM
+  let list = document.getElementById("carnivores-list");
+  let outputString = "";
+
+  for (let i = 0; i < carnivores.length; i++) {
+    let currentCarnivore = carnivores[i];
+
+    //Build up DOM string
+    outputString +=  `<h1>${currentCarnivore.name}</h1>`;
+    outputString +=  `<h5>${currentCarnivore.family}</h5>`;
+
+  }
+    list.innerHTML = outputString;
+}
+
+function gridCarnivores (carnivores) {
+
+  let grid = document.getElementById("carnivores-grid");
+  let outputString = "";
+
+  for (let i = 0; i < carnivores.length; i++) {
+    let currentCarnivore = carnivores[i];
+
+    //Build up DOM string
+    outputString +=  `<div class="carnivores-card">${currentCarnivore.name}</div>`;
+
+  }
+    grid.innerHTML = outputString;
+}
+
+
+
 
 Predator.loadCarnivores();
